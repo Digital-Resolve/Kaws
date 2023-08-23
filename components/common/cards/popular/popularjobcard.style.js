@@ -3,15 +3,50 @@ import { StyleSheet } from "react-native";
 import { COLORS, FONT, SHADOWS, SIZES } from "../../../../constants";
 
 const styles = StyleSheet.create({
-  container: (selectedJob, item) => ({
-    width: 250,
-    padding: SIZES.xLarge,
-    backgroundColor: selectedJob === item.job_id ? COLORS.primary : "#FFF",
+  container: {
+    // flex: 1,
+    display: "flex",
+    flexDirection: 'row',
+    borderRadius: SIZES.xxLarge,
+    width: '100%',
+    height: 180,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: COLORS.gray,
+    
+  },
+  textMain: {
+    backgroundColor: 'red',
+    flexDirection: 'column',
+    width: '40%',
+    justifyContent: "center",
+    fontSize: SIZES.medium,
+    fontFamily: FONT.regular,
+    color: "#B3AEC6",
+    marginTop: SIZES.small / 1.5,
+    marginLeft: 10
+  },
+  kawsDoll: {
+    // flex: 1,
+    // display: "flex",
+    flexDirection: "column",
+    width: "60%",
+    height: '100%',
+    // paddingBottom: 15,
+    // backgroundColor: COLORS.gray2,
     borderRadius: SIZES.medium,
-    justifyContent: "space-between",
-    ...SHADOWS.medium,
-    shadowColor: COLORS.white,
-  }),
+    justifyContent: "flex-end",
+    // alignItems: "flex-end",
+  },
+  kawsDollImg: {
+    left: "-15%",
+    // flexDirection: "row",
+    // backgroundColor: "blue",
+    // bottom: "7%",
+    width: "100%",
+    height: "120%",
+    justifyContent: "flex-end",
+  },
   logoContainer: (selectedJob, item) => ({
     width: 50,
     height: 50,

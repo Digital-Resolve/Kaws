@@ -1,4 +1,7 @@
 import ScreenHeaderBtn from "./common/header/ScreenHeaderBtn";
+import HeaderImage from './common/header/HeaderImage'
+import HeaderMenu from './common/header/HeaderMenu'
+
 
 // home screen
 import Welcome from "./home/welcome/Welcome";
@@ -25,5 +28,7 @@ export {
   JobAbout,
   JobFooter,
   Specifics,
-  NearbyJobCard
+  NearbyJobCard,
+  HeaderImage,
+  HeaderMenu
 };
