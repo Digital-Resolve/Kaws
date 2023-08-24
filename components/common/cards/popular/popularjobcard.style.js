@@ -106,13 +106,14 @@ const styles = StyleSheet.create({
   tab: (activeJobType, item) => ({
     paddingVertical: SIZES.small / 2,
     paddingHorizontal: SIZES.small,
-    borderRadius: SIZES.medium,
+    backgroundColor: activeJobType == item ? COLORS.white : COLORS.black,
+    borderRadius: 5,
     borderWidth: 1,
-    borderColor: activeJobType === item ? COLORS.gray2 : COLORS.black,
+    borderColor: activeJobType === item ? COLORS.black : COLORS.black,
   }),
   tabText: (activeJobType, item) => ({
     fontFamily: FONT.medium,
-    color: activeJobType === item ? COLORS.black : COLORS.black,
+    color: activeJobType === item ? COLORS.black : COLORS.white,
   }),
   tabsContainer: {
     width: "100%",

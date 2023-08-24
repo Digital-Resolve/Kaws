@@ -5,7 +5,12 @@ import styles from './nearbyjobs.style'
 
 const Nearbyjobs = () => {
   return (
-    <View>
+    <View 
+      style={styles.container}>
+      <View style={styles.itemRow}>
+
+      </View>
+
       <Text>Product List</Text>
     </View>
   )

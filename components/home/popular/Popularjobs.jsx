@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, FlatList, ActivityIndicator, Animated } from 'react-native';
+import { View, Text, TouchableOpacity, FlatList, ActivityIndicator, Animated, RefreshControl } from 'react-native';
 import { useRouter } from 'expo-router';
 import { COLORS, SIZES} from '../../../constants';
 import PopularJobCard from '../../common/cards/popular/PopularJobCard';
@@ -7,7 +7,6 @@ import PopularJobCard from '../../common/cards/popular/PopularJobCard';
 import styles from './popularjobs.style'
 
 const Popularjobs = () => {
-
 
   const router = useRouter();
   const isLoading = false;
@@ -45,7 +44,7 @@ const Popularjobs = () => {
   return (
     <View style={styles.container}>
 
-      <View style={styles.cardsContainer}>
+      <View style={styles.cardsContainer}  >
         {isLoading ? (
           <ActivityIndicator size="large" colors={COLORS.primary} />
         ) : ( 
@@ -58,6 +57,7 @@ const Popularjobs = () => {
                   }
                 ],
                 }}
+                
               >
                 <PopularJobCard />
               </Animated.View>

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { View, SafeAreaView, ScrollView, RefreshControl } from 'react-native';
+import { View, SafeAreaView, ScrollView, RefreshControl, ActivityIndicator } from 'react-native';
 import { Stack, useRouter } from 'expo-router';
 
 import { COLORS, icons, images, SIZES } from '../constants'
-import { Nearbyjobs, Popularjobs, ScreenHeaderBtn, Welcome, HeaderImage, HeaderMenu } from '../components'
+import { Nearbyjobs, Popularjobs, ScreenHeaderBtn, Welcome, HeaderImage, HeaderMenu,  } from '../components'
 
 const Home = () =>{
 
@@ -38,7 +38,7 @@ const Home = () =>{
             />
 
             <ScrollView showsVerticalScrollIndicator={false} refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} /> }>
-                <View
+                <View 
                     style={{
                         flex:1,
                         padding: SIZES.medium
@@ -46,8 +46,8 @@ const Home = () =>{
                 >
 
                 <Welcome />
-
-                <Popularjobs onRefresh={onRefresh}  />
+                
+                {refreshing ? (<ActivityIndicator size="large" colors={COLORS.primary} /> ) : ( <Popularjobs   />) }
 
                 <Nearbyjobs />
 
