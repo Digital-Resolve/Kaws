@@ -7,6 +7,7 @@ import {
   Image,
   } from 'react-native'
 import { useRouter } from 'expo-router'
+import CommonHeader from '../../common/header/CommonHeader'
 
 import styles from './welcome.style'
 import { icons, SIZES } from '../../../constants'
@@ -18,6 +19,7 @@ const Welcome = () => {
 
   return (
     <View>
+    {/* <CommonHeader /> */}
 
       <View style={styles.container}>
 

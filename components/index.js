@@ -1,12 +1,13 @@
 import ScreenHeaderBtn from "./common/header/ScreenHeaderBtn";
-import HeaderImage from './common/header/HeaderImage'
-import HeaderMenu from './common/header/HeaderMenu'
+// import HeaderImage from './common/header/HeaderImage'
+// import HeaderMenu from './common/header/HeaderMenu'
 
 
 // home screen
 import Welcome from "./home/welcome/Welcome";
 import Nearbyjobs from "./home/nearby/Nearbyjobs";
 import Popularjobs from "./home/popular/Popularjobs";
+import Landing from "./home/landing/Landing";
 
 // job details screen
 import Company from "./jobdetails/company/Company";
@@ -29,6 +30,7 @@ export {
   JobFooter,
   Specifics,
   NearbyJobCard,
-  HeaderImage,
-  HeaderMenu
+  // HeaderImage,
+  // HeaderMenu,
+  Landing,
 };

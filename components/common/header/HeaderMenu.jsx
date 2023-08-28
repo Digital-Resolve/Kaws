@@ -1,6 +1,6 @@
 import React from 'react';
 import { TouchableOpacity } from 'react-native';
-import Svg, {Path, Rect} from 'react-native-svg';
+import Svg, { Rect} from 'react-native-svg';
 
 const Menu = () => {
     return (

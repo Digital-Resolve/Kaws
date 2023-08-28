@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { View, SafeAreaView, ScrollView, RefreshControl, ActivityIndicator } from 'react-native';
+import { View, SafeAreaView, ScrollView, RefreshControl, ActivityIndicator, LogBox} from 'react-native';
 import { Stack, useRouter } from 'expo-router';
 
 import { COLORS, icons, images, SIZES } from '../constants'
-import { Nearbyjobs, Popularjobs, ScreenHeaderBtn, Welcome, HeaderImage, HeaderMenu,  } from '../components'
+import { Nearbyjobs, Popularjobs, ScreenHeaderBtn, Welcome, HeaderImage, HeaderMenu, Landing } from '../components'
+
+// LogBox.ignoreAllLogs();
 
 const Home = () =>{
 
@@ -20,22 +22,7 @@ const Home = () =>{
 
     return(
         <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.bgWhite }}>
-            <Stack.Screen
-                options={{
-                    headerStyle: { backgroundColor: COLORS.bgWhite },
-                    headerShadowVisible: false,
-                    headerTitleAlign: 'center',
-                    headerLeft: () => (
-                        <HeaderMenu />
-                    ),
-                    // headerRight: () => (
-                    //     <ScreenHeaderBtn iconUrl={images.profile} dimension='100%' />
-                    // ),
-                    headerTitle: () => (
-                        <HeaderImage />
-                    )
-                }}
-            />
+            
 
             <ScrollView showsVerticalScrollIndicator={false} refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} /> }>
                 <View 
@@ -45,11 +32,15 @@ const Home = () =>{
                     }}
                 >
 
-                <Welcome />
-                
-                {refreshing ? (<ActivityIndicator size="large" colors={COLORS.primary} /> ) : ( <Popularjobs   />) }
+                <Landing />
 
-                <Nearbyjobs />
+                {/* <Welcome /> */}
+                
+                {/* <Popularjobs  /> */}
+
+                
+                {/* {refreshing ? (<ActivityIndicator size="large" colors={COLORS.primary} />) : ( <Nearbyjobs />) } */}
+
 
                 </View>
             </ScrollView>
