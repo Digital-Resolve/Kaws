@@ -1,3 +1,4 @@
+import { useRouter } from 'expo-router';
 import React, {useState} from 'react'
 import { View, Text, TouchableOpacity, Image, Animated } from 'react-native'
 
@@ -6,7 +7,7 @@ import styles from './nearbyjobcard.style'
 import kaws2 from '../../../../assets/images/kaws/kaws2.png'
 import kaws3 from '../../../../assets/images/kaws/kaws3.png'
 
-const NearbyJobCard = () => {
+const NearbyJobCard = ({handleNavigate}) => {
   const isLoading = false;
 
   var [fadeAnim] = useState(new Animated.Value(0));
@@ -49,7 +50,7 @@ const NearbyJobCard = () => {
     ],
     }}>
           <View style={styles.itemRow}>
-                <TouchableOpacity style={styles.item}>
+                <TouchableOpacity style={styles.item} onPress={handleNavigate}>
 
                   <View style={styles.itemImage}>
                     <Image 

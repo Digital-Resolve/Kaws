@@ -19,7 +19,7 @@ const Welcome = () => {
 
   return (
     <View>
-    {/* <CommonHeader /> */}
+    <CommonHeader />
 
       <View style={styles.container}>
 

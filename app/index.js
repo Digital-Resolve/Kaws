@@ -5,13 +5,23 @@ import { Stack, useRouter } from 'expo-router';
 import { COLORS, icons, images, SIZES } from '../constants'
 import { Nearbyjobs, Popularjobs, ScreenHeaderBtn, Welcome, HeaderImage, HeaderMenu, Landing } from '../components'
 
-// LogBox.ignoreAllLogs();
+LogBox.ignoreAllLogs();
 
 const Home = () =>{
 
     const router = useRouter();
+    const [loading, setLoading] = useState(false);
 
     const [refreshing, setRefreshing] = React.useState(false);
+    const [logIn, setIsLogin] = React.useState(true);
+    function handleState() {
+        setLoading(true);
+        setTimeout(() => {
+        setLoading(false);
+        setIsLogin(false);
+        }, 1500);
+        
+     }
 
     const onRefresh = React.useCallback(() => {
         setRefreshing(true);
@@ -31,17 +41,9 @@ const Home = () =>{
                         padding: SIZES.medium
                     }}
                 >
-
-                <Landing />
-
-                {/* <Welcome /> */}
+                {loading ? (<ActivityIndicator size="large" colors={COLORS.primary}/>) : (<>{logIn ? (<Landing change={handleState} />) : (<><Welcome /><Popularjobs />{refreshing?(<ActivityIndicator size="large" colors={COLORS.primary}/>) : ( <Nearbyjobs/>) }</>)}</>)}
                 
-                {/* <Popularjobs  /> */}
-
                 
-                {/* {refreshing ? (<ActivityIndicator size="large" colors={COLORS.primary} />) : ( <Nearbyjobs />) } */}
-
-
                 </View>
             </ScrollView>
 
