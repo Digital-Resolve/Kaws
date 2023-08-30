@@ -13,7 +13,7 @@ const Home = () =>{
     const [loading, setLoading] = useState(false);
 
     const [refreshing, setRefreshing] = React.useState(false);
-    const [logIn, setIsLogin] = React.useState(true);
+    const [logIn, setIsLogin] = React.useState(false);
     function handleState() {
         setLoading(true);
         setTimeout(() => {

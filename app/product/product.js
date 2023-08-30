@@ -6,14 +6,13 @@ import styles from './product.style'
 // import * as THREE from 'three';
 import { Canvas, useLoader } from "@react-three/fiber";
 import { MTLLoader } from "three/examples/jsm/loaders/MTLLoader";
-import { Model } from "./models/kaws/1";
 
 function Doll(props) {
-    const material = useLoader(MTLLoader, require('./models/kaws/1.mtl'))
+    const material = useLoader(MTLLoader, require('./models/Airmax/shoe.mtl'));
 
     const obj = useLoader(
         OBJLoader, 
-        require('./models/kaws/1.obj'),
+        require('./models/Airmax/shoe.obj'),
         (loader) => {
             material.preload();
             loader.setMaterials(material);
@@ -21,7 +20,7 @@ function Doll(props) {
         );
     return(
         <mesh>
-            <primitive object={obj} scale={0.3} />
+            <primitive object={obj} scale={15} />
         </mesh>
     )
 }
@@ -34,10 +33,10 @@ const Product = () => {
             <Canvas>
                 <ambientLight />
                 <pointLight position={[10, 10, 10]} />
-                <Model />
+
                 {/* <mesh > */}
                 <Suspense fallback={null}>
-                    <Doll position={[10, 10, 10]} />
+                    <Doll  />
                 </Suspense>
                     {/* <boxGeometry />
                     <meshStandardMaterial color={'orange'} />
