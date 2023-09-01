@@ -1,5 +1,5 @@
 import React, {useState, useRef, Suspense, useLayoutEffect} from "react";
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, TouchableOpacity } from 'react-native';
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader';
 import styles from './product.style'
 // import * as THREE from 'three';
@@ -13,8 +13,12 @@ import { COLORS } from '../../constants'
 import { HeaderImage } from '../../components'
 import { Stack } from 'expo-router';
 
+// Rendering 3d Model. Couldn't find a working 3d Kaws doll model. Sorry :(
+    function Doll() {
+        const [angX, setAngX] = useState(1);
+        
 
-function Doll(props) {
+
     const [base, normal, rough] = useLoader(TextureLoader, [
         require('./models/Airmax/textures/BaseColor.jpg'),
         require('./models/Airmax/textures/Normal.jpg'),
@@ -43,32 +47,37 @@ function Doll(props) {
           });
         }, [obj]);
 
-        useFrame((state, delta) => {
-            let { x, y, z } = props.animatedSensor.sensor.value;
-            x = ~~(x * 40) / 5000;
-            y = ~~(y * 40) / 5000;
-            mesh.current.rotation.x += x;
-            mesh.current.rotation.y += y;
-          });
-
-          
+          angle1 = () => {
+            setAngX(2);
+        };
+        angle2 = () => {
+            setAngX(3);
+        };
+        angle3 = () => {
+            setAngX(4);
+        };
+        angle4 = () => {
+            setAngX(5);
+        };
     return(
-        <mesh ref={mesh} rotation={[0.3, 5, 0]}>
-            <primitive object={obj} scale={7} />
+        
+        <mesh ref={mesh} rotation={[0.3, angX, 0]} >
+            <primitive object={obj} scale={10}  />
         </mesh>
     )
 }
 
+// Flatlist num of elements for pictures
+const numItems = [1, 2, 3, 4]
+
 const Product = () => {
-    const animatedSensor = useAnimatedSensor(SensorType.GYROSCOPE, {
-        interval: 40,
-      });
+    
     
     return(
     <>
         <Stack.Screen
             options={{
-                headerStyle: { backgroundColor: COLORS.bgWhite },
+                headerStyle: { backgroundColor: "#F6F6F6" },
                 headerShadowVisible: false,
                 headerTitleAlign: 'center',
                 headerTitle: () => (
@@ -76,26 +85,41 @@ const Product = () => {
                 )
             }}
         />
-            <Canvas style={{height: 100}}>
+        <View style={styles.model}>
+            <Canvas>
+                {/* <color attach="background" args={["red"]}  /> */}
                 <ambientLight />
                 <pointLight position={[10, 10, 10]} />
                 <Suspense fallback={null}>
-                    <Doll animatedSensor={animatedSensor}  />
+                    <Doll   />
                 </Suspense>
             </Canvas>
-        {/* <View style={styles.imageContainer}>
-        </View> */}
-
-        <View>
-            <Image source={'../../assets/images/kaws/kaws1.png'} resizeMode="contain" />
-        </View>
-        <View>
-            <Text>Product Name</Text>
-            <Text>Product Price</Text>
         </View>
 
-        <View>
-            <Text>Product Description</Text>
+        <View style={styles.imageRow}>
+            <TouchableOpacity style={styles.prodRowImage} onPress={() => angle1()}>
+                <Image source={require('../../assets/images/kaws/kaws4.png')} resizeMode="contain" style={styles.productImage}  />
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.prodRowImage} onPress={() => angle2()}>
+                <Image source={require('../../assets/images/kaws/kaws5.png')} resizeMode="contain" style={styles.productImage} />
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.prodRowImage} onPress={() => angle3()}>
+                <Image source={require('../../assets/images/kaws/kaws4.png')} resizeMode="contain" style={styles.productImage} />
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.prodRowImage} onPress={() => angle4()}>
+                <Image source={require('../../assets/images/kaws/kaws5.png')} resizeMode="contain" style={styles.productImage} />
+            </TouchableOpacity>
+        </View>
+        <View style={styles.namePrice}>
+            <Text>KAWS Statue</Text>
+            <Text>R16 000.00</Text>
+        </View>
+
+        <View style={styles.desc}>
+            <Text>The KAWS Family Figures – Grey represents a blend of pop culture and modern artistry. Designed by renowned graffiti artist Brian Donnelly, each figure bears the iconic ‘X’ logo, exemplifying the innovative spirit of KAWS. These limited-edition pieces make a bold statement, infusing any space with a vibrant, contemporary aesthetic. Secure your set today and enjoy a captivating addition to your KAWS collection</Text>
         </View>
     </>
     )
