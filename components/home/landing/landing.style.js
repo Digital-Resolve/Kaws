@@ -16,10 +16,8 @@ const styles = StyleSheet.create({
     // shadowRadius: 1,
     // shadowOffset: SIZES.small,
     // shadowOpacity: 1,
+    marginTop: 120,
     marginBottom: 20,
-  },
-  logoContainer:{
-    marginTop: 30,
   },
   container2: {
     // display: "flex",

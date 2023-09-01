@@ -2,6 +2,10 @@ import { Stack } from "expo-router";
 import { useCallback } from "react";
 import { useFonts } from "expo-font";
 import * as SplashScreen from 'expo-splash-screen'
+import HeaderImage from '../components/common/header/HeaderImage'
+import HeaderMenu from "../components/common/header/HeaderMenu";
+import { COLORS, icons, images, SIZES } from '../constants'
+
 
 // While app is loading the splash screen will be displayed until 'hideAsync' is called
 SplashScreen.preventAutoHideAsync

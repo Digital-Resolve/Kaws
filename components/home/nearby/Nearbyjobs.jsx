@@ -4,7 +4,7 @@ import { View, FlatList } from 'react-native'
 import NearbyJobCard from '../../common/cards/nearby/NearbyJobCard'
 
 import styles from './nearbyjobs.style'
-import Product from '../../../app/product/product';
+// import Product from '../../../app/product/product';
 
 const numItems = [1, 2, 3, 4, 5, 6]
 

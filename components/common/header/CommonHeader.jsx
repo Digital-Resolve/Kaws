@@ -9,7 +9,7 @@ import HeaderMenu from "./HeaderMenu";
 const CommonHeader = () => {
     return(
        <>
-         <Stack.Screen
+         {/* <Stack.Screen
                 options={{
                     headerStyle: { backgroundColor: COLORS.bgWhite },
                     headerShadowVisible: false,
@@ -24,7 +24,7 @@ const CommonHeader = () => {
                         <HeaderImage />
                     )
                 }}
-            />
+            /> */}
        </>
     )
 }
