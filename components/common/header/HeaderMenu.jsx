@@ -1,10 +1,11 @@
 import React from 'react';
 import { TouchableOpacity } from 'react-native';
 import Svg, { Rect} from 'react-native-svg';
+import { Drawer } from 'expo-router/drawer';
 
 const Menu = () => {
     return (
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => <Drawer />} >
             <Svg xmlns="http://www.w3.org/2000/svg" width="26" height="20" viewBox="0 0 26 20" fill="none">
                 <Rect x="0.0244141" y="0.731201" width="25.4465" height="2.6324" rx="1.3162" fill="black"/>
                 <Rect x="0.0244446" y="8.62842" width="21.9367" height="2.6324" rx="1.3162" fill="black"/>

@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { View, SafeAreaView, ScrollView, RefreshControl, ActivityIndicator, LogBox} from 'react-native';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { NavigationContainer } from '@react-navigation/native';
+import { Drawer } from 'expo-router/drawer';
 import { Stack, useRouter } from 'expo-router';
 // import HeaderImage from '../components/common/header/HeaderImage'
 // import HeaderMenu from "../components/common/header/HeaderMenu";
@@ -25,6 +28,10 @@ const Home = () =>{
         
      }
 
+     function LogOut() {
+        setIsLogin(true);
+      }
+
     const onRefresh = React.useCallback(() => {
         setRefreshing(true);
         setTimeout(() => {
@@ -32,7 +39,11 @@ const Home = () =>{
         }, 2000);
     }, []);
 
+    
+    const Drawer = createDrawerNavigator();
+
     return(
+        
         <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.bgWhite }}>
             <Stack.Screen
                 options={{
@@ -41,7 +52,6 @@ const Home = () =>{
                     headerShadowVisible: false,
                     headerTitleAlign: 'center',
                     headerLeft: () => (
-                        
                         <HeaderMenu />
                     ),
                     // headerRight: () => (
@@ -64,9 +74,11 @@ const Home = () =>{
                 
                 
                 </View>
+                
             </ScrollView>
 
         </SafeAreaView>
+        
     )
 }
 

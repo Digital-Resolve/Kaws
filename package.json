@@ -9,10 +9,12 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@react-navigation/drawer": "^6.6.3",
     "@react-three/drei": "^9.80.9",
     "@react-three/fiber": "^8.13.7",
     "expo": "^49.0.3",
     "expo-constants": "~14.4.2",
+    "expo-file-system": "~15.4.3",
     "expo-font": "~11.4.0",
     "expo-gl": "~13.0.1",
     "expo-linking": "~5.0.2",
@@ -29,8 +31,7 @@
     "react-native-screens": "~3.22.0",
     "react-native-svg": "^13.12.0",
     "react-native-web": "~0.19.6",
-    "three": "^0.155.0",
-    "expo-file-system": "~15.4.3"
+    "three": "^0.155.0"
   },
   "devDependencies": {
     "@babel/core": "^7.19.3",
