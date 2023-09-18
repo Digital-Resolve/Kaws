@@ -41,7 +41,10 @@ const styles = StyleSheet.create({
   kawsDollImg: {
     width: "80%",
     height: "115%",
-    top: "-9%",
+    // justifyContent: "flex-start",
+    // alignItems: "flex-end",
+    // backgroundColor: "red",
+    // top: "-9%",
   },
   headerText: {
     fontFamily: FONT.regular,

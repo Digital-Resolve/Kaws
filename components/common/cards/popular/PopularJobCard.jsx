@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, Image, Animated, FlatList } from 'react-native'
-import kawsMain from '../../../../assets/images/kaws/kaws1.png'
+import kawsMain from '../../../../assets/images/kaws/kaws6.png'
 import { useRouter } from 'expo-router'
 
 import styles from './popularjobcard.style'
@@ -48,13 +48,13 @@ const PopularJobCard = () => {
                   }
                 )
                 ,]}>
-      <TouchableOpacity>
         <Image 
           source={kawsMain}
           style={styles.kawsDollImg}
+          resizeMode='contain'
         />
         
-      </TouchableOpacity>
+
     </Animated.View>
 
     
